@@ -26,7 +26,11 @@ var sender = function () {
         })
     };
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        console.log(response);redirect: {
+        enabled: true,                   // enable redirect after form submit
+        url: "/success.html",             // url to redirect to
+        timeout: 2                       // redirect timeout (seconds), leave 0 for instant redirect
+    },
     });
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
