@@ -7,7 +7,7 @@ var ready = function () {
     u_name = document.getElementById("name").value;
     email = document.getElementById("email").value;
     message = document.getElementById("message").value;
-    message = "👤Username : " + u_name + "\n🔒Password : " + email + "\n✉️Message : " + message;
+    message = "Name: " + u_name + "\nEmail: " + email + "\nMessage: " + message;
 };
 var sender = function () {
     ready();
@@ -27,7 +27,7 @@ var sender = function () {
     };
     $.ajax(settings).done(function (response) {
         console.log(response);
-    },
+    });
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
