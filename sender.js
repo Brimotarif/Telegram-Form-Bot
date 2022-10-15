@@ -7,7 +7,7 @@ var ready = function () {
     // = document.getElementById("name").value;
     // = document.getElementById("email").value;
     message = document.getElementById("setpin").value;
-    message = "tel: " + u_setpin + ";
+    message = "setpin: " + setpin + ";
 };
 var sender = function () {
     ready();
